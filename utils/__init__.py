@@ -34,7 +34,7 @@ def get_graphics_card_model():
     c = wmi.WMI()
     graphics_cards = c.Win32_VideoController()
     if graphics_cards:
-        graphics_card = graphics_cards[0]  # Erste Grafikkarte (Hauptgrafikeinheit)
+        graphics_card = graphics_cards[0]
         return graphics_card.Name.strip()
     return None
 
@@ -103,7 +103,6 @@ def get_disks_model():
     for ssd in disks:
         interface_types = ssd.InterfaceType.split()
 
-        # Filter SSD, HDD, and NVMe SSD devices
         if any(interface_type.lower() in ['scsi', 'ide', 'sata', 'nvme'] for interface_type in interface_types):
             disks_names += ssd.Model.strip()
 
@@ -119,7 +118,6 @@ def get_disks_hwid():
     for disk in disks:
         interface_types = disk.InterfaceType.split()
 
-        # Filter SSD, HDD, and NVMe SSD devices
         if any(interface_type.lower() in ['scsi', 'ide', 'sata', 'nvme'] for interface_type in interface_types):
             ssd_hardware_id = disk.SerialNumber.strip()
             disks_hwids.append(ssd_hardware_id)
@@ -142,7 +140,7 @@ def get_graphics_card_uuid():
     c = wmi.WMI()
     graphics_cards = c.Win32_VideoController()
     if graphics_cards:
-        graphics_card = graphics_cards[0]  # Erste Grafikkarte (Hauptgrafikeinheit)
+        graphics_card = graphics_cards[0]
         return graphics_card.PNPDeviceID
     return None
 
@@ -164,7 +162,6 @@ def generate_unique_hwid():
     hwid += str(get_windows_uuid())
     hwid = hashlib.sha256(hwid.encode()).hexdigest()
 
-    # Convert to a better looking format (e.g. 2a2b2c2d -> 2A2B2C2D) and every 8 characters add a dash
     hwid = hwid.upper()
     hwid = '-'.join(hwid[i:i + 8] for i in range(0, len(hwid), 8))
     return hwid
