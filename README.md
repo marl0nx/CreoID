@@ -8,6 +8,9 @@
 ![Header](https://github.com/marl0nx/creoid/blob/main/images/github-header-image.png?raw=true)
 <p>An unique HWID generator, made using Python.</p>
 
+## Why choose CreoID? 
+<p>CreoID uses multiple secutity factors (Disks, CPU HWID, Mainboard HWID) to make sure that it's hard to bypass.</p>
+
 ## Usage/Examples
 
 
