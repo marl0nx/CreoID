@@ -40,7 +40,7 @@ print(hwid)
 ```python
 def example_check_hwid():
     hwid = generate_unique_hwid()
-    r = requests.get('https://marl0nx.github.io/creoid/example_hwid')  # Replace your own URL.
+    r = requests.get('https://marl0nx.github.io/CreoID/example_hwid')  # Replace your own URL.
     if r.text == hwid:
         return True
     else:
