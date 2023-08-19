@@ -52,7 +52,7 @@ print("HWID matches with your system: " + str(example_check_hwid()))
 
 ## Authors
 
-- [@marl0nx](https://www.github.com/octokatherine)
+- [@marl0nx](https://www.github.com/marl0nx)
 
 
 ## Support
